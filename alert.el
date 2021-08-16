@@ -812,6 +812,8 @@ by the `notifications' style.")
     (let ((id (notifications-notify :title (plist-get info :title)
                                     :body  (plist-get info :message)
                                     :app-icon (plist-get info :icon)
+                                    ;; NOTE: ub's edit
+                                    :sound-name "message-new-instant"
                                     :timeout (if (plist-get info :persistent) 0 -1)
                                     :replaces-id (gethash (plist-get info :id) alert-notifications-ids)
                                     :urgency (cdr (assq (plist-get info :severity)
